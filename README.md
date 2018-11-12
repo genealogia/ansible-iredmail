@@ -1,3 +1,9 @@
+# ansible-iredmail-mysql
+
+- Ansible configuration for remote mysql server.
+- upgrade to iredmail 0.9.8
+- tested with Debian 9
+
 # ansible-iredmail
 Deploy iRedMail using Ansible - LetsEncrypt, Monit, Slack Notifications and FTP Backup
 

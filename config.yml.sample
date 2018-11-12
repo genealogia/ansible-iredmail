@@ -4,11 +4,15 @@ domainname: example.com
 
 iredmail:
     # If /etc/iredmail-release exists, iRedMail will not install. This is to prevent the installer running on a system where iRedMail has been installed.
-    version: 0.9.7
+    version: 0.9.8
     downloadPath: /root
     vmailbindpass: password
     vmailadminpass: password
-    psqlrootpass: password
+    # psqlrootpass: password
+    mysqlhost: 
+    mysqlport: 3306
+    mysqluser: 
+    mysqlpassword: 
     adminpass: password
     amavisdpass: password
     admindbpass: password
