@@ -21,8 +21,11 @@
     path: "{{ iredmail.downloadPath }}/iRedMail-{{ iredmail.version }}/iRedMail.sh"
     mode: 0700
 
+- name: iredmail | fix mysql script, grant persmission not required
+  shell: "sed -e s'/check_status_before_run mysql_grant_permission_on_remote_server/#/g' -i {{ iredmail.downloadPath }}/iRedMail-{{ iredmail.version }}/functions/mysql.sh"
+
 - name: iredmail | install
-  shell: "IREDMAIL_DEBUG='NO' AUTO_USE_EXISTING_CONFIG_FILE=y AUTO_INSTALL_WITHOUT_CONFIRM=y AUTO_CLEANUP_REMOVE_SENDMAIL=y AUTO_CLEANUP_REMOVE_MOD_PYTHON=y AUTO_CLEANUP_REPLACE_FIREWALL_RULES=y AUTO_CLEANUP_RESTART_IPTABLES=y AUTO_CLEANUP_REPLACE_MYSQL_CONFIG=y AUTO_CLEANUP_RESTART_POSTFIX=n bash iRedMail.sh"
+  shell: "IREDMAIL_DEBUG='YES' AUTO_USE_EXISTING_CONFIG_FILE=y AUTO_INSTALL_WITHOUT_CONFIRM=y AUTO_CLEANUP_REMOVE_SENDMAIL=y AUTO_CLEANUP_REMOVE_MOD_PYTHON=y AUTO_CLEANUP_REPLACE_FIREWALL_RULES=y AUTO_CLEANUP_RESTART_IPTABLES=y bash iRedMail.sh"
   args:
     chdir: "{{ iredmail.downloadPath }}/iRedMail-{{ iredmail.version }}"
   notify: restart stack

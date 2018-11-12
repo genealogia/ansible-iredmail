@@ -11,8 +11,9 @@ iredmail:
     # psqlrootpass: password
     mysqlhost: 
     mysqlport: 3306
-    mysqluser: 
-    mysqlpassword: 
+    mysqlrootuser: 
+    mysqlrootpassword: 
+    mysqlgranthost: 
     adminpass: password
     amavisdpass: password
     admindbpass: password
